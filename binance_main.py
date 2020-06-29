@@ -8,13 +8,12 @@ client = Client(config.API_KEY, config.API_SECRET)
 
 
 # check for proper call structure
-'''
 def handle_args():
     if len(sys.argv) != 2:
         print("usage: coin [symbol name (ex: BNBBTC)]")
         return sys.exit()
+
     return True
-'''
 
 
 # start!
@@ -47,9 +46,12 @@ def start():
     baseAsset = info["baseAsset"]
     quoteAsset = info["quoteAsset"]
 
+
     # get SMA and Bollinger Bands
     sma = calculateSMA()
     bb = calculateBB()
+
+
 
     # print formatted data
     print()
@@ -66,6 +68,7 @@ def start():
     print("")
     print(" https://www.binance.com/en/trade/" + baseAsset + "_" + quoteAsset)
 
+    
 # calculate simple moving average (past 20 days)
 def calculateSMA():
     # getting data from past 20 days
@@ -93,4 +96,6 @@ def calculateBB():
     # Bollinger Bands consists of lower, middle and upper band
     return [lowerBand, middleBand, upperBand]
 
+  
 start()
+
